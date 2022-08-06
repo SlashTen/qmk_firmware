@@ -30,8 +30,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_COLS 6
 
 // wiring of each half
-#define MATRIX_COL_PINS { C0, C1, C2, C3, C4, C5 }
-#define MATRIX_ROW_PINS { A0, A1, A2, A3, A4 }
+#define MATRIX_COL_PINS { D4, C6, D7, E6, B4, B5 }
+#define MATRIX_ROW_PINS { F4, F5, F6, F7, D0 }
 
 #define DIODE_DIRECTION COL2ROW
 
@@ -46,8 +46,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGB_MATRIX_MAXIMUM_BRIGHTNESS 80
 
 #define SPLIT_TRANSPORT_MIRROR
-#define SPLIT_HAND_PIN A6
-
+#define MASTER_RIGHT
 
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST
@@ -73,8 +72,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define LAYER_STATE_16BIT
 
 /* serial.c configuration for split keyboard */
-#define SOFT_SERIAL_PIN D3
-#define EE_HANDS
+#define SOFT_SERIAL_PIN D1
 
 
 /* Set 0 if debouncing isn't needed */
@@ -86,6 +84,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define NO_ACTION_ONESHOT
 
 /* PMW3360 Settings */
-#define PMW3360_CS_PIN           B0
+#define PMW3360_CS_PIN           B6
 
 #define POINTING_DEVICE_RIGHT

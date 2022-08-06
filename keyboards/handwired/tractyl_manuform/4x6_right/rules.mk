@@ -1,5 +1,5 @@
 # MCU name
-MCU = at90usb1286
+MCU = atmega32u4
 
 # Bootloader selection
 BOOTLOADER = atmel-dfu
@@ -18,6 +18,7 @@ RGBLIGHT_ENABLE = no        # Enable keyboard RGB underglow
 AUDIO_ENABLE = no           # Audio output
 RGB_MATRIX_ENABLE = no
 RGB_MATRIX_DRIVER = WS2812
+F_CPU = 8000000
 
 
 POINTING_DEVICE_ENABLE = yes
