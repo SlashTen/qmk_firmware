@@ -62,6 +62,7 @@
 
 /* PMW3360 settings. */
 #define PMW3360_CS_PIN B0
+#define PMW3360_LIFTOFF_DISTANCE 0x06
 
 #define RGB_DI_PIN D3
 #define RGBLED_NUM 56

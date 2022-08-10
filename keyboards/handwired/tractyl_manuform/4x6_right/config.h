@@ -35,18 +35,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define DIODE_DIRECTION COL2ROW
 
-// WS2812 RGB LED strip input and number of LEDs
-#define RGB_DI_PIN       E7
-#define DRIVER_LED_TOTAL 62
-#define RGB_MATRIX_SPLIT { 32, 30 }
-#define RGB_DISABLE_WHEN_USB_SUSPENDED
-#define RGB_MATRIX_KEYPRESSES
-// #define RGB_MATRIX_KEYRELEASES
-#define RGB_MATRIX_FRAMEBUFFER_EFFECTS
-#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 80
+#define EE_HANDS
 
-#define SPLIT_TRANSPORT_MIRROR
-#define MASTER_RIGHT
+#define AUTO_SHIFT_TIMEOUT 175
 
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST
@@ -56,16 +47,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // #define DEBUG_LED_PIN                  D6
 
-#define ROTATIONAL_TRANSFORM_ANGLE     -25
+
 
 /* Bootmagic Lite key configuration */
 #define BOOTMAGIC_LITE_ROW             0
 #define BOOTMAGIC_LITE_COLUMN          0
 #define BOOTMAGIC_LITE_ROW_RIGHT       4
 #define BOOTMAGIC_LITE_COLUMN_RIGHT    5
-
-#define AUDIO_PIN                      C6
-#define AUDIO_PIN_ALT                  B7
 
 #define DYNAMIC_KEYMAP_EEPROM_MAX_ADDR 4095
 #define DYNAMIC_KEYMAP_LAYER_COUNT     16
@@ -85,5 +73,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* PMW3360 Settings */
 #define PMW3360_CS_PIN           B6
-
 #define POINTING_DEVICE_RIGHT
+#define ROTATIONAL_TRANSFORM_ANGLE     0
+//#define POINTING_DEVICE_INVERT_X
