@@ -38,22 +38,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define EE_HANDS
 
 #define AUTO_SHIFT_TIMEOUT 175
+#define TAPPING_TOGGLE 2
 
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST
-
-/* number of backlight levels */
-// #define BACKLIGHT_LEVELS 3
-
-// #define DEBUG_LED_PIN                  D6
-
-
-
-/* Bootmagic Lite key configuration */
-#define BOOTMAGIC_LITE_ROW             0
-#define BOOTMAGIC_LITE_COLUMN          0
-#define BOOTMAGIC_LITE_ROW_RIGHT       4
-#define BOOTMAGIC_LITE_COLUMN_RIGHT    5
 
 #define DYNAMIC_KEYMAP_EEPROM_MAX_ADDR 4095
 #define DYNAMIC_KEYMAP_LAYER_COUNT     16
@@ -74,5 +62,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* PMW3360 Settings */
 #define PMW3360_CS_PIN           B6
 #define POINTING_DEVICE_RIGHT
-#define ROTATIONAL_TRANSFORM_ANGLE     0
-//#define POINTING_DEVICE_INVERT_X
+#define ROTATIONAL_TRANSFORM_ANGLE     25
+#define POINTING_DEVICE_INVERT_X
+#define PMW3389_LIFTOFF_DISTANCE 0x04
+#define POINTING_DEVICE_ROTATION_270
