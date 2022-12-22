@@ -37,7 +37,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define EE_HANDS
 
-#define AUTO_SHIFT_TIMEOUT 175
 #define TAPPING_TOGGLE 2
 
 /* define if matrix has ghost */
@@ -64,5 +63,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define POINTING_DEVICE_RIGHT
 #define ROTATIONAL_TRANSFORM_ANGLE     25
 #define POINTING_DEVICE_INVERT_X
-#define PMW3389_LIFTOFF_DISTANCE 0x04
+#define PMW3360_LIFTOFF_DISTANCE 0x03
 #define POINTING_DEVICE_ROTATION_270

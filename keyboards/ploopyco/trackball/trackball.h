@@ -53,6 +53,7 @@ enum ploopy_keycodes {
     DPI_CONFIG = SAFE_RANGE,
 #endif
     DRAG_SCROLL,
+    SNIPING,
 #ifdef VIA_ENABLE
     PLOOPY_SAFE_RANGE = SAFE_RANGE,
 #else
