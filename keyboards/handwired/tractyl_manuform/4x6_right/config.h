@@ -59,9 +59,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define NO_ACTION_ONESHOT
 
 /* PMW3360 Settings */
-#define PMW3360_CS_PIN           B6
+#define PMW3360_CS_PIN           		B6
 #define POINTING_DEVICE_RIGHT
-#define ROTATIONAL_TRANSFORM_ANGLE     25
+#define ROTATIONAL_TRANSFORM_ANGLE     	25
 #define POINTING_DEVICE_INVERT_X
-#define PMW3360_LIFTOFF_DISTANCE 0x03
+#define PMW3360_LIFTOFF_DISTANCE 		0x02
 #define POINTING_DEVICE_ROTATION_270
+#define POINTING_DEVICE_MOTION_PIN		D2
