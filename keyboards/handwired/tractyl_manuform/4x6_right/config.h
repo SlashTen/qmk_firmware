@@ -66,3 +66,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PMW3360_LIFTOFF_DISTANCE 		0x02
 #define POINTING_DEVICE_ROTATION_270
 #define POINTING_DEVICE_MOTION_PIN		D2
+
+#define POINTING_DEVICE_AUTO_MOUSE_ENABLE
+#define AUTO_MOUSE_DEFAULT_LAYER 2

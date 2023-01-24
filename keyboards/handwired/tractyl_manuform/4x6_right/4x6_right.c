@@ -65,3 +65,100 @@ const keypos_t PROGMEM hand_swap_config[MATRIX_ROWS][MATRIX_COLS] = {
     {{5, 4}, {4, 4}, {3, 4}, {2, 4}, {1, 4}, {0, 4}}
 };
 #endif
+
+#include "pointing_device.h"
+
+
+uint8_t track_mode = 0; // 0 Mousecursor; 1 arrowkeys/carret; 2 scrollwheel; 3 sound/brightness
+#define cursor_mode 0
+#define carret_mode 1
+uint8_t prev_track_mode = 0;
+int16_t cum_x = 0;
+int16_t cum_y = 0;
+int16_t sensor_x = 0;
+int16_t sensor_y = 0;
+
+// Thresholds help to move only horizontal or vertical. When accumulated distance reaches threshold, only move one discrete value in direction with bigger delta.
+uint8_t	carret_threshold = 24;		 // higher means slower
+
+uint16_t cursor_multiplier = 250;	// adjust cursor speed
+uint16_t cursor_multiplier_inte = 20;
+#define CPI_STEP 20
+
+int16_t cur_factor;
+
+int max(int num1, int num2) { return (num1 > num2 ) ? num1 : num2; }
+int min(int num1, int num2) { return (num1 > num2 ) ? num2 : num1; }
+
+int8_t sign(int x) { return (x > 0) - (x < 0); }
+int8_t CLAMP_HID(int value) { return value < -127 ? -127 : value > 127 ? 127 : value; }
+
+void pointing_device_init_user(void) {
+    set_auto_mouse_enable(true);
+}
+
+void tap_code_fast(uint8_t code) {
+	register_code(code);
+	// Dont do this:
+	// if (code == KC_CAPS) {
+	//	 wait_ms(TAP_HOLD_CAPS_DELAY);
+	// } else {
+	//	 wait_ms(TAP_CODE_DELAY);
+	// }
+	unregister_code(code);
+}
+
+void tap_tb(uint8_t keycode0, uint8_t keycode1, uint8_t keycode2, uint8_t keycode3) {
+	if(abs(cum_x) > abs(cum_y)) {
+		if(cum_x > 0) {
+			for (int8_t i = 0; i <= (abs(cum_x) + abs(cum_y)) / cur_factor; i++) {
+				tap_code_fast(keycode0);
+				cum_x = max(cum_x - cur_factor, 0);
+			}
+			cum_y = 0;
+		} else {
+			for (int8_t i = 0; i <= (abs(cum_x) + abs(cum_y)) / cur_factor; i++) {
+				tap_code_fast(keycode1);
+				cum_x = min(cum_x + cur_factor, 0);
+			}
+			cum_y = 0;
+		}
+	} else {
+		if(cum_y > 0) {
+			for (int8_t i = 0; i <= (abs(cum_x) + abs(cum_y)) / cur_factor; i++) {
+				tap_code_fast(keycode2);
+				cum_y = max(cum_y - cur_factor, 0);
+				}
+			cum_x = 0;
+		} else {
+			for (int8_t i = 0; i <= (abs(cum_x) + abs(cum_y)) / cur_factor; i++) {
+				tap_code_fast(keycode3);
+				cum_y = min(cum_y + cur_factor, 0);
+			}
+			cum_x = 0;
+		}
+	}
+}
+
+void handle_pointing_device_modes(void){
+	report_mouse_t mouse_report = pointing_device_get_report();
+
+	// accumulate movement until threshold reached
+	cum_x += sensor_x;
+	cum_y += sensor_y;
+
+	cur_factor = carret_threshold;
+	tap_tb(KC_RIGHT, KC_LEFT, KC_UP, KC_DOWN);
+		
+	pointing_device_set_report(mouse_report);
+	pointing_device_send();
+}
+
+void get_sensor_data(void) {
+	if(!is_keyboard_master())
+		return;
+	report_mouse_t mouseReport = pointing_device_get_report();
+
+	sensor_x = mouseReport.x;
+	sensor_y = mouseReport.y;
+}
