@@ -20,10 +20,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "config_common.h"
 
-#define PRODUCT_ID  0x3537
-#define DEVICE_VER  0x0001
-#define PRODUCT     Tractyl Manuform(4x6)
-
 /* key matrix size */
 // Rows are doubled-up
 #define MATRIX_ROWS 10
@@ -38,6 +34,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define EE_HANDS
 
 #define TAPPING_TOGGLE 2
+#define HOLD_ON_OTHER_KEY_PRESS
 
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST
@@ -59,8 +56,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define NO_ACTION_ONESHOT
 
 /* PMW3360 Settings */
-#define PMW3360_CS_PIN           		B6
-#define POINTING_DEVICE_RIGHT
+#define POINTING_DEVICE_CS_PIN     		B6
 #define ROTATIONAL_TRANSFORM_ANGLE     	25
 #define POINTING_DEVICE_INVERT_X
 #define PMW3360_LIFTOFF_DISTANCE 		0x02
@@ -69,3 +65,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define POINTING_DEVICE_AUTO_MOUSE_ENABLE
 #define AUTO_MOUSE_DEFAULT_LAYER 2
+#define AUTO_MOUSE_TIME 1000

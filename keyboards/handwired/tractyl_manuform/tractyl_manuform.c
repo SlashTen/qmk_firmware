@@ -378,3 +378,15 @@ void                       matrix_scan_kb(void) {
     matrix_scan_sub_kb();
     matrix_scan_user();
 }
+
+bool is_mouse_record_kb(uint16_t keycode, keyrecord_t* record) {
+    switch(keycode) {
+        case DRAGSCROLL_MODE:
+            return true;
+        case SNIPING_MODE:
+            return true;
+        default:
+            return false;
+    }
+    return  is_mouse_record_user(keycode, record);
+}
