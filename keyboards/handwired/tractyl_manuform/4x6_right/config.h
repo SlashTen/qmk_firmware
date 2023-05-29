@@ -18,51 +18,37 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#include "config_common.h"
+// WS2812 RGB LED strip input and number of LEDs
+#define RGB_MATRIX_LED_COUNT 62
+#define RGB_MATRIX_SPLIT { 32, 30 }
+#define RGB_DISABLE_WHEN_USB_SUSPENDED
+#define RGB_MATRIX_KEYPRESSES
+// #define RGB_MATRIX_KEYRELEASES
+#define RGB_MATRIX_FRAMEBUFFER_EFFECTS
+#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 80
 
-/* key matrix size */
-// Rows are doubled-up
-#define MATRIX_ROWS 10
-#define MATRIX_COLS 6
+#define SPLIT_TRANSPORT_MIRROR
+#define SPLIT_HAND_PIN A6
 
-// wiring of each half
-#define MATRIX_COL_PINS { D4, C6, D7, E6, B4, B5 }
-#define MATRIX_ROW_PINS { F4, F5, F6, F7, D0 }
+// #define DEBUG_LED_PIN                  D6
 
-#define DIODE_DIRECTION COL2ROW
+#define ROTATIONAL_TRANSFORM_ANGLE     -25
 
-#define EE_HANDS
-
-#define TAPPING_TOGGLE 2
-#define HOLD_ON_OTHER_KEY_PRESS
-
-/* define if matrix has ghost */
-//#define MATRIX_HAS_GHOST
+#define AUDIO_PIN                      C6
+#define AUDIO_PIN_ALT                  B7
 
 #define DYNAMIC_KEYMAP_EEPROM_MAX_ADDR 4095
 #define DYNAMIC_KEYMAP_LAYER_COUNT     16
 #define LAYER_STATE_16BIT
 
-/* serial.c configuration for split keyboard */
-#define SOFT_SERIAL_PIN D1
-
-
-/* Set 0 if debouncing isn't needed */
-#define DEBOUNCE 5
+#define EE_HANDS
 
 /* disable action features */
 //#define NO_ACTION_LAYER
 //#define NO_ACTION_TAPPING
 //#define NO_ACTION_ONESHOT
 
-/* PMW3360 Settings */
-#define POINTING_DEVICE_CS_PIN     		B6
-#define ROTATIONAL_TRANSFORM_ANGLE     	25
-#define POINTING_DEVICE_INVERT_X
-#define PMW3360_LIFTOFF_DISTANCE 		0x02
-#define POINTING_DEVICE_ROTATION_270
-#define POINTING_DEVICE_MOTION_PIN		D2
+/* PMW33XX Settings */
+#define PMW33XX_CS_PIN           B0
 
-#define POINTING_DEVICE_AUTO_MOUSE_ENABLE
-#define AUTO_MOUSE_DEFAULT_LAYER 2
-#define AUTO_MOUSE_TIME 1000
+#define POINTING_DEVICE_RIGHT
