@@ -67,6 +67,7 @@ const keypos_t PROGMEM hand_swap_config[MATRIX_ROWS][MATRIX_COLS] = {
 #endif
 
 #include "pointing_device.h"
+#include "pointing_device_auto_mouse.h"
 
 
 uint8_t track_mode = 0; // 0 Mousecursor; 1 arrowkeys/carret; 2 scrollwheel; 3 sound/brightness

@@ -388,5 +388,5 @@ bool is_mouse_record_kb(uint16_t keycode, keyrecord_t* record) {
         default:
             return false;
     }
-    return  is_mouse_record_user(keycode, record);
+    return  is_mouse_record_kb(keycode, record);
 }
